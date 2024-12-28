@@ -1,31 +1,17 @@
 #wordlist generator
 
-'''
-genera una wordlist partendo da una parola di base
-scompone la parola per identificare numeri, stringhe, simboli e li ricompila nella posizione originaria, es:
-banana123!
-
-banana -> Banana, BAnana, BaNaNa, BANANA, ecc....
-123 -> 124,125,000,999, ecc....
-! -> @,#,<,>,:,ecc....
-'''
-
 import re
 from itertools import product
 import string
 import argparse
 
-#scompone la stringa in parametri
 def scompose_string(scomp_string):   
     pattern = r'[a-zA-Z]+|\d+|[^a-zA-Z\d]'
     matches = re.findall(pattern, scomp_string)
     return matches
 
-#genera delle varianti per ogni componente passato
 def generatePermutation(array):
     results = []
-
-    # Usa tutti i simboli possibili definiti in string.punctuation
     symbols = list(string.punctuation)
 
     for el in array:
@@ -47,7 +33,6 @@ def generatePermutation(array):
 def compose_string(comp_arr):
     return [''.join(comb) for comb in product(*comp_arr)]
 
-#scrive gli array nel file di output
 def write_wordlist(output_arr,filename,limit):
     c = 0
     with open(filename, 'w') as file:
@@ -58,7 +43,6 @@ def write_wordlist(output_arr,filename,limit):
             c=c+1
     return c
 
-#start prog con args
 def main():
 
     ascii_art = """
