@@ -1,5 +1,5 @@
 # WordlistGenerator
-Wordlist generator starting from a single string for targeted bruteforce
+Wordlist generator starting from a single string for targeted bruteforce.
 
 Creates permutations from a single string to generate a wordlist of words similar to the starting one. Useful in bruteforce starting from a known password not randomly generated.
 
